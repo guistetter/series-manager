@@ -2,10 +2,11 @@ const express = require("express")
 const app = express()
 const mongoose = require("mongoose")
 const path = require("path")
-const bodyparser = require("body-parser")
 const bodyParser = require("body-parser")
 const port = process.env.PORT || 3000 
 const mongo = process.env.MONGODB || "mongodb://localhost/minhas-series"
+
+const pages = require("./routes/pages")
 
 mongoose.Promise = global.Promise 
 //process request body
@@ -16,8 +17,8 @@ app.use(express.static("public"))
 app.set("views",path.join(__dirname, "views"))
 app.set("view engine", "ejs")
 
-app.get("/",(req, res) => res.render("index"))
-app.get("/sobre",(req, res) => res.render("sobre"))
+app.use("/", pages)
+
 mongoose
 .connect(mongo, {useMongoClient:true})
 .then(()=> {
