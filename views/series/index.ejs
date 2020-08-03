@@ -10,7 +10,7 @@
                 <tr>
                   <td><%- serie.name %></td> 
                   <td>
-                    <%- labels.filter(label => label.id === serie.status)[0].name %>
+                    <span class="badge badge-secondary"><%- labels.filter(label => label.id === serie.status)[0].name %></span>
                     <!-- <%- serie.status %> </td> -->
                   <td>
                     <a href="/series/excluir/<%= serie._id%>">Excluir</a>
