@@ -19,6 +19,14 @@ const novaForm = (req,res) => {
   res.render('series/nova')
 }
 
+const excluir = ({Serie}, req,res) => {
+  Serie.remove({
+    _id: req.params.id
+  },(err) => {
+    res.redirect('/series')
+  })
+}
+
 module.exports ={ 
-  index, novaProcess, novaForm
+  index, novaProcess, novaForm, excluir
 }
