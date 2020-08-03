@@ -7,7 +7,7 @@ const models = {
   Serie
 }
 router.get("/", seriesController.index.bind(null, models))
-router.post("/nova", seriesController.novaForm)
+router.get("/nova", seriesController.novaForm)
 router.post("/nova", seriesController.novaProcess.bind(null, models))
 
 module.exports = router
