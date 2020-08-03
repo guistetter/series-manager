@@ -18,6 +18,6 @@ const novaProcess = ({Serie}, req, res) => {
 const novaForm = (req,res) => {
   res.render('series/nova')
 }
-module.exports ={
+module.exports ={ 
   index, novaProcess, novaForm
 }
