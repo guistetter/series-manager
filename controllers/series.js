@@ -1,9 +1,15 @@
 //const Serie = require("../models/serie")
 
+const labels = [
+  {id: 'to-watch', name:'Para assistir'},
+  {id: 'watching', name:'Assistindo'},
+  {id: 'watched', name:'Assistido'},
+]
+
 const index = ({Serie}, req, res) => {
   Serie.find({}, (err, docs) => {
     //res.send(docs)
-    res.render("series/index", {series: docs})
+    res.render("series/index", {series: docs, labels})
   })
 }
 
@@ -37,11 +43,7 @@ const editarProcess =({Serie}, req, res) =>{
 }
 
 const editarForm = ({Serie}, req, res) => {
-  const labels = [
-    {id: 'to-watch', name:'Para assistir'},
-    {id: 'watching', name:'Assistindo'},
-    {id: 'watched', name:'Assistido'},
-  ]
+ 
   Serie.findOne({_id: req.params.id}, (err, serie) =>{
   res.render("series/editar",{serie, labels})
   })

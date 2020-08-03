@@ -9,7 +9,9 @@
               <% series.forEach( serie => { %>
                 <tr>
                   <td><%- serie.name %></td> 
-                  <td><%- serie.status %> </td> 
+                  <td>
+                    <%- labels.filter(label => label.id === serie.status)[0].name %>
+                    <!-- <%- serie.status %> </td> -->
                   <td>
                     <a href="/series/excluir/<%= serie._id%>">Excluir</a>
                     <span>|</span>
