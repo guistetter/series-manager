@@ -6,7 +6,7 @@ const index = ({Serie}, req, res) => {
     res.render("series/index", {series: docs})
   })
 }
-const nova = ({Serie}, req, res) => {
+const novaProcess = ({Serie}, req, res) => {
   const serie = new Serie({
     name: "friends",
     status: "watched"
@@ -15,6 +15,9 @@ const nova = ({Serie}, req, res) => {
   res.render("series/nova")
 }
 
+const novaForm = (req,res) => {
+  res.render('series/nova')
+}
 module.exports ={
-  index, nova
+  index, novaProcess, novaForm
 }
