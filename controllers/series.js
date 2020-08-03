@@ -6,18 +6,19 @@ const index = ({Serie}, req, res) => {
     res.render("series/index", {series: docs})
   })
 }
+
 const novaProcess = ({Serie}, req, res) => {
-  const serie = new Serie({
-    name: "friends",
-    status: "watched"
+  const serie = new Serie(req.body)
+  serie.save(() => {
+    console.log("saved series/nova")
+    res.redirect("/series")
   })
-  serie.save(() => console.log("saved"))
-  res.render("series/nova")
 }
 
 const novaForm = (req,res) => {
   res.render('series/nova')
 }
+
 module.exports ={ 
   index, novaProcess, novaForm
 }
