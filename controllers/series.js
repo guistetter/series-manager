@@ -27,6 +27,29 @@ const excluir = ({Serie}, req,res) => {
   })
 }
 
+const editarProcess =({Serie}, req, res) =>{
+  Serie.findOne({_id: req.params.id},(err, serie) =>{
+    serie.name = req.body.name
+    serie.status = req.body.status 
+    serie.save()
+    res.redirect('/series')
+  })
+}
+
+const editarForm = ({Serie}, req, res) => {
+  const labels = [
+    {id: 'to-watch', name:'Para assistir'},
+    {id: 'watching', name:'Assistindo'},
+    {id: 'watched', name:'Assistido'},
+  ]
+  Serie.findOne({_id: req.params.id}, (err, serie) =>{
+  res.render("series/editar",{serie, labels})
+  })
+}
+
 module.exports ={ 
-  index, novaProcess, novaForm, excluir
+  index, 
+  novaProcess, novaForm, 
+  excluir,
+  editarProcess, editarForm
 }
