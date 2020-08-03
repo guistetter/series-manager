@@ -1,17 +1,27 @@
 <%- include("../partials/header") %>
-    <section id="about">
-      <div class="container" style="height: 381px;">
-        <div class="row">
-          <div class="col-lg-8 mx-auto">
-            <form method="post">
+  <section id="about">
+    <div class="container" style="height: 381px;">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <form method="post">
             <h2>Cadastro de Series</h2>
-            <p class="lead">Cadastrar nova serie<a href="/series/nova" class="btn btn-info">Cadastrar nova série</a></p>
-           <input type="text" name="name">
-           <input type="text" name="name">
-           <button>Salvar</button>
+            <div class="form-group">
+              <label for="name">Nome da série</label>
+              <input id="name" name="name" type="text" class="form-control" placeholder="Escreva nome da serie">
+              <small class="form-text text-muted">Nome da serie a ser salva</small>
+            </div>
+            <div class="form-group">
+              <label for="status">Situação</label>
+              <select class="form-control" id="status" name=status>
+                <option value="to-watch">Para assistir</option>
+                <option value="to-watching">Assistindo</option>
+                <option value="watched">Assistido</option>
+              </select>
+            </div>
+            <button class="btn btn-primary">Salvar</button>
           </form>
-          </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 <%- include("../partials/footer") %>
