@@ -12,6 +12,8 @@
                   <td><%- serie.status %> </td> 
                   <td>
                     <a href="/series/excluir/<%= serie._id%>">Excluir</a>
+                    <span>|</span>
+                    <a href="/series/editar/<%= serie._id%>">Editar</a>
                   </td>
                 </tr>
               <% }) %>
