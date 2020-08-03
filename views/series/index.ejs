@@ -8,7 +8,11 @@
             <table class="table table-hover">
               <% series.forEach( serie => { %>
                 <tr>
-                  <td><%- serie.name %></td> <td><%- serie.status %> </td> 
+                  <td><%- serie.name %></td> 
+                  <td><%- serie.status %> </td> 
+                  <td>
+                    <a href="/series/excluir/<%= serie._id%>">Excluir</a>
+                  </td>
                 </tr>
               <% }) %>
             </table>
