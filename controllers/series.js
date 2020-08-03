@@ -1,12 +1,12 @@
-const Serie = require("../models/serie")
+//const Serie = require("../models/serie")
 
-const index = (req, res) => {
+const index = ({Serie}, req, res) => {
   Serie.find({}, (err, docs) => {
     //res.send(docs)
     res.render("series/index", {series: docs})
   })
 }
-const nova = (req, res) => {
+const nova = ({Serie}, req, res) => {
   const serie = new Serie({
     name: "friends",
     status: "watched"
