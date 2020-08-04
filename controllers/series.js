@@ -86,9 +86,15 @@ const editarForm = async ({Serie}, req, res) => {
   res.render("series/editar",{serie, labels, errors: []})
 }
 
+const info = async ({Serie}, req, res) =>{
+  const serie = await Serie.findOne({_id: req.params.id})
+  res.render('series/info', {serie})
+}
+
 module.exports ={ 
   index, 
   novaProcess, novaForm, 
   excluir,
-  editarProcess, editarForm
+  editarProcess, editarForm,
+  info
 }
