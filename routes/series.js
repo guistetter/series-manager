@@ -3,7 +3,6 @@ const seriesController = require("../controllers/series")
 
 const router = express.Router()
 const Serie = require("../models/serie")
-const series = require("../controllers/series")
 const models = {
   Serie
 }
@@ -17,6 +16,6 @@ router.get("/excluir/:id", seriesController.excluir.bind(null, models))
 router.get("/editar/:id", seriesController.editarForm.bind(null, models))
 router.post("/editar/:id", seriesController.editarProcess.bind(null, models))
 
-router.get('/series/info/:id', seriesController.info)
+router.get('/info/:id', seriesController.info.bind(null, models))
 
 module.exports = router
