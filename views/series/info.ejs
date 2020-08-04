@@ -10,6 +10,12 @@
             </div>
             <textarea name="comentario" class="form-control" id="" cols="30" rows="10"></textarea>
             <input class= "btn btn-info mt-4" type="submit" value="Adicionar comentario">
+            <% serie.comments.forEach( c => { %>
+              <div class="card m-2 p-1">
+                <%= c %>
+              </div>
+            <% }) %>
+            <%=JSON.stringify(serie.comments) %>
           </form>
         </div>
       </div>
