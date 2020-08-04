@@ -90,11 +90,15 @@ const info = async ({Serie}, req, res) =>{
   const serie = await Serie.findOne({_id: req.params.id})
   res.render('series/info', {serie})
 }
+const addComentario = async({Serie}, req, res) => {
+  await Serie.updateOne({_id: req.params.id}, {$push:{comments: req.body.comentario}})
+  res.redirect('/series/info/' + req.params.id)
+}
 
 module.exports ={ 
   index, 
   novaProcess, novaForm, 
   excluir,
   editarProcess, editarForm,
-  info
+  info, addComentario
 }
