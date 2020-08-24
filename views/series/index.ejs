@@ -22,6 +22,30 @@
                 </tr>
               <% }) %>
             </table>
+
+            <nav aria-label="...">
+              <ul class="pagination">
+
+                <% if(results.pagination.currentPage>0){ %>
+                <li class="page-item">
+                  <a class="page-link" href="/series?page=<%=results.pagination.currentPage-1 %>&pageSize=<%= results.pagination.pageSize %>" tabindex="-1">Anterior</a>
+                </li>
+                <% } %>
+
+                <% for(let i=0; i < results.pagination.pages; i++){ %>
+                <li class="page-item<% if(i==results.pagination.currentPage){%> active <%}%>">
+                  <a class="page-link" href="/series?page=<%= i %>&pageSize=<%= results.pagination.pageSize %>"><%= i+1 %></a>
+                </li>
+                <% } %>
+
+                <% if(results.pagination.currentPage < results.pagination.pages-1){ %>
+                <li class="page-item">
+                  <a class="page-link" href="/series/?page=<%= results.pagination.currentPage+1%>&pageSize=<%= results.pagination.pageSize%>">Proximo</a>
+                </li>
+                <% } %>
+              </ul>
+            </nav>
+
           </div>
         </div>
       </div>
